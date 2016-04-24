@@ -1,0 +1,32 @@
+#ignore the following filetypes
+
+*.pdf
+
+# object files
+*.[oa]
+
+# temporary editor files
+*~
+
+# executables
+bin/*
+
+# moc_files
+*moc*.cpp
+
+# clion files
+*workspace*.xml
+*.idea/*
+
+# CMake files except for CMakeList.txt
+CMake*
+Makefile*
+*cmake*
+*.make
+CXX*
+TargetDirectories.txt
+progress.marks
+a.out
+link.txt
+ANN
+!CMakeLists.txt

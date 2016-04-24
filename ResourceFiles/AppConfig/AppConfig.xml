@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<appConfig>
+    <parameter name="repo"> xml </parameter>
+    <parameter name="backpropStepsize" > 0.1 </parameter>
+</appConfig>

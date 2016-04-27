@@ -1,7 +1,7 @@
-#include "../../common/definitions/enums/repository/Repository.hpp"
-#include "AppConfig.hpp"
-#include "../../utils/helper/enumhelper/EnumHelper.hpp"
-#include "ConfigDom/ConfigDom.hpp"
+#include <common/definitions/enums/repository/Repository.hpp>
+#include <app/appconfig/AppConfig.hpp>
+#include <utils/helper/enumhelper/EnumHelper.hpp>
+#include <app/appconfig/configdom/ConfigDom.hpp>
 
 Repository AppConfig::repo = Repository::Default;
 double AppConfig::backpropStepsize = 0.01;

@@ -1,5 +1,5 @@
-#ifndef AIUNIT_APPCONFIG_HPP
-#define AIUNIT_APPCONFIG_HPP
+#ifndef IRIS_APPCONFIG_HPP
+#define IRIS_APPCONFIG_HPP
 
 #include <string>
 #include <common/definitions/enums/repository/Repository.hpp>
@@ -13,4 +13,4 @@ class AppConfig
         static void loadParameters();
 };
 
-#endif //AIUNIT_APPCONFIG_HPP
+#endif

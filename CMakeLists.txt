@@ -13,8 +13,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 # source files for main application - main.cpp is added separately below
 set(SOURCE_FILES
 
-    src/app/appconfig/ConfigDom/ConfigDom.cpp
-    src/app/appconfig/ConfigDom/ConfigDom.hpp
+    src/app/appconfig/configdom/ConfigDom.cpp
+    src/app/appconfig/configdom/ConfigDom.hpp
     src/app/appconfig/AppConfig.cpp
     src/app/appconfig/AppConfig.hpp
     src/app/appstart/AppStart.cpp
@@ -29,6 +29,7 @@ set(SOURCE_FILES
     src/common/iocfactory/IocFactory.hpp
     src/persistance/crudworker/contract/ICrudWorker.hpp
     src/persistance/crudworker/impl/CrudWorker.hpp
+    src/persistance/crudworker/impl/CrudWorker_imp.hpp
     src/persistance/repository/contract/IRepository.hpp
     src/utils/helper/enumhelper/EnumHelper.hpp
     src/utils/helper/enumhelper/EnumHelper_imp.hpp
@@ -40,10 +41,16 @@ set(SOURCE_FILES
 set(TEST_SOURCE_FILES
 
     test/common/iocfactory/IocFactoryTest.cpp
+    test/persistance/crudworker/CrudWorkerTest.cpp
+    test/mocks/persistance/repository/IRepository_Mock.hpp
+    test/mocks/helper/MockingHelper_imp.hpp
+    test/mocks/helper/MockingHelper.hpp
+    test/mocks/persistance/crudworker/ICrudWorker_Mock.hpp
 )
 
 # Find includes in corresponding build directories
 include_directories(    ${CMAKE_CURRENT_SOURCE_DIR}/src
+                        ${CMAKE_CURRENT_SOURCE_DIR}/test
                         ${CMAKE_CURRENT_SOURCE_DIR}/lib/include
 					)
 

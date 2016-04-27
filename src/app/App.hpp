@@ -1,5 +1,5 @@
-#ifndef AIUNIT_APP_HPP
-#define AIUNIT_APP_HPP
+#ifndef IRIS_APP_HPP
+#define IRIS_APP_HPP
 
 #include <app/appstart/AppStart.hpp>
 

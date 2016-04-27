@@ -1,5 +1,5 @@
-#ifndef AIUNIT_IOCFACTORY_HPP
-#define AIUNIT_IOCFACTORY_HPP
+#ifndef IRIS_IOCFACTORY_HPP
+#define IRIS_IOCFACTORY_HPP
 
 #include <common/iocfactory/ioccontainer/IocContainer.hpp>
 

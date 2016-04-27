@@ -1,5 +1,5 @@
-#ifndef AIUNIT_BASEEXCEPTION_HPP
-#define AIUNIT_BASEEXCEPTION_HPP
+#ifndef IRIS_BASEEXCEPTION_HPP
+#define IRIS_BASEEXCEPTION_HPP
 
 #include <string>
 
@@ -22,4 +22,4 @@ class BaseException
         std::string _message;
 };
 
-#endif //AIUNIT_BASEEXCEPTION_HPP
+#endif

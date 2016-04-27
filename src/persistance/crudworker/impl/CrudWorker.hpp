@@ -1,8 +1,8 @@
 #ifndef IRIS_CRUDWORKER_HPP
 #define IRIS_CRUDWORKER_HPP
 
-#include "../contract/ICrudWorker.hpp"
-#include "../../repository/contract/IRepository.hpp"
+#include <common/iocfactory/IocFactory.hpp>
+#include <persistance/crudworker/contract/ICrudWorker.hpp>
 
 template <typename TEntity> class CrudWorker : public virtual ICrudWorker<TEntity>
 {
@@ -13,35 +13,18 @@ template <typename TEntity> class CrudWorker : public virtual ICrudWorker<TEntit
             _repo = repo;
         }
 
-        void setRepository(IRepository_sPtr<TEntity>& repo)
-        {
-            _repo = repo;
-        }
+        void setRepository(IRepository_sPtr<TEntity>& repo);
 
-        void save(std::shared_ptr<TEntity> obj)
-        {
-            _repo->save(obj);
-        }
+        void save(std::shared_ptr<TEntity> obj);
+        void save(const std::unique_ptr<TEntity>& obj);
 
-        void save(const std::unique_ptr<TEntity>& obj)
-        {
-            _repo->save(*obj);
-        }
-
-        std::unique_ptr<TEntity> read(unsigned long id)
-        {
-			//TODO: test, ob T pure abstract class oder concrete class ist, je nach dem IocFactory oder make_unique.... 
-			
-            auto returnPointer = IocFactory::getUniqueInstance<T>();
-
-            _repo->read(id, *returnPointer);
-
-            return returnPointer;
-        }
+        std::unique_ptr<TEntity> read(unsigned long id);
 
     private:
 
         IRepository_sPtr<TEntity> _repo;
 };
 
-#endif //AIUNIT_ICRUDWORKER_HPP
+#include <persistance/crudworker/impl/CrudWorker_imp.hpp>
+
+#endif

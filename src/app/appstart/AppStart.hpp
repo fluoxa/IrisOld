@@ -1,5 +1,5 @@
-#ifndef AIUNIT_APPMANAGER_HPP
-#define AIUNIT_APPMANAGER_HPP
+#ifndef IRIS_APPMANAGER_HPP
+#define IRIS_APPMANAGER_HPP
 
 class AppStart
 {
@@ -22,4 +22,4 @@ class AppStart
         void registerCrudWorker();
 };
 
-#endif //AIUNIT_APPMANAGER_HPP
+#endif

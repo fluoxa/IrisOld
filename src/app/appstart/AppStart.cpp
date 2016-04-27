@@ -37,8 +37,8 @@ AppStart::registerCrudWorker()
  // {
  //     auto repo = RepoFactory::getRepo<ITrainingHiddenLevelWorker>();
  // 
- //     return new CrudWorker<INeuralNet>(repo);
+ //     return new crudworker<INeuralNet>(repo);
  // };
  // 
- // IocFactory::registerIocContainer(IocContainer().forService<ICrudWorker<INeuralNet>>().implementedBy<CrudWorker<INeuralNet>(std::cref(nnCrudWorker)));
+ // IocFactory::registerIocContainer(IocContainer().forService<ICrudWorker<INeuralNet>>().implementedBy<crudworker<INeuralNet>(std::cref(nnCrudWorker)));
 }

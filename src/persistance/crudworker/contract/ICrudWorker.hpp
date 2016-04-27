@@ -1,7 +1,7 @@
 #ifndef IRIS_ICRUDWORKER_HPP
 #define IRIS_ICRUDWORKER_HPP
 
-#include "../../repository/contract/IRepository.hpp"
+#include <persistance/repository/contract/IRepository.hpp>
 
 #include <memory>
 
@@ -19,4 +19,4 @@ template <typename TEntity> class ICrudWorker
         virtual std::unique_ptr<TEntity> read(unsigned long id) = 0;
 };
 
-#endif //AIUNIT_ICRUD_HPP
+#endif

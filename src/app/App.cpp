@@ -1,8 +1,8 @@
+#include <app/App.hpp>
+#include <app/appconfig/AppConfig.hpp>
 #include <common/definitions/enums/repository/Repository.hpp>
 #include <utils/helper/enumhelper/EnumHelper.hpp>
-#include <app/appconfig/AppConfig.hpp>
 #include <iostream>
-#include "App.hpp"
 
 void
 App::run()

@@ -1,5 +1,5 @@
 #include <mocks/persistance/repository/IRepository_Mock.hpp>
-#include <persistance/crudworker/impl/CrudWorker.hpp>
+#include <persistance/crudworker/CrudWorker.hpp>
 #include <mocks/helper/MockingHelper.hpp>
 
 using ::testing::Return;
@@ -46,7 +46,7 @@ TEST_F(CrudWorkerTest, save_uPtr)
 {
     auto obj = std::make_unique<CWTest::TestClass>();
 
-    EXPECT_CALL(*repo, save(A<const CWTest::TestClass &>()))
+    EXPECT_CALL(*repo, save(A<CWTest::TestClass &>()))
         .Times(1);
 
     CrudWorker<CWTest::TestClass> worker(repo);

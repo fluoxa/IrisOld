@@ -1,5 +1,5 @@
-#include <common/definitions/enums/repository/Repository.hpp>
-#include "EnumHelper.hpp"
+#include <definitions/enums/repository/Repository.hpp>
+#include <utils/helper/enumhelper/EnumHelper.hpp>
 
 template <> inline void
 EnumHelper<Repository>::registerMap()

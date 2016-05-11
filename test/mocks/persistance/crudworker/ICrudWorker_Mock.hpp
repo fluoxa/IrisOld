@@ -1,7 +1,7 @@
 #ifndef IRIS_CRUDWORKER_MOCK_HPP
 #define IRIS_CRUDWORKER_MOCK_HPP
 
-#include <persistance/crudworker/contract/ICrudWorker.hpp>
+#include <definitions/persistance/crudworker/ICrudWorker.hpp>
 #include <gmock/gmock.h>
 
 template <typename TEntity> class ICrudWorker_Mock : public ICrudWorker<TEntity>

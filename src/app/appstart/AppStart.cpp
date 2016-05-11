@@ -1,7 +1,14 @@
+#include <app/appstart/AppStart.hpp>
+
 #include <iostream>
 #include <app/appconfig/AppConfig.hpp>
 #include <common/exception/baseexception/BaseException.hpp>
-#include "AppStart.hpp"
+
+#include <persistance/repository/dbrepository/DbRepository.hpp>
+#include <definitions/persistance/crudworker/ICrudWorker.hpp>
+#include <persistance/crudworker/CrudWorker.hpp>
+
+std::shared_ptr<odb::database> AppStart::_db = nullptr;
 
 void
 AppStart::loadConfig()
@@ -10,7 +17,7 @@ AppStart::loadConfig()
     {
         AppConfig::loadParameters();
     }
-    catch(BaseException exc)
+    catch(BaseException& exc)
     {
 		//TODO: Exception hier umarbeiten
         std::cerr << "Called by loadParameters():" << std::endl;
@@ -18,8 +25,25 @@ AppStart::loadConfig()
         throw BaseException("Fatal");
     }
 
+	try
+	{
+		loadDataBase();
+	}
+	catch(odb::exception& e)
+	{
+		//TODO: Exception hier umarbeiten
+        std::cerr << "Called by loadDatabases():" << std::endl;
+        throw BaseException("Fatal");
+	}
+		
     registerIocContainer();
 	registerCrudWorker();
+}
+
+void
+AppStart::loadDataBase()
+{
+  _db = std::make_shared<odb::sqlite::database>(AppConfig::sqliteDb, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE);
 }
 
 void
@@ -32,13 +56,12 @@ AppStart::registerIocContainer()
 void
 AppStart::registerCrudWorker()
 {
- // use as follows	
- // auto nnCrudWorker = []() -> Crud<INeuralNet>*
- // {
- //     auto repo = RepoFactory::getRepo<ITrainingHiddenLevelWorker>();
- // 
- //     return new crudworker<INeuralNet>(repo);
- // };
- // 
- // IocFactory::registerIocContainer(IocContainer().forService<ICrudWorker<INeuralNet>>().implementedBy<crudworker<INeuralNet>(std::cref(nnCrudWorker)));
+	auto nnCrudWorker = []() -> CrudWorker<Person>*
+	{
+		auto repo = std::make_shared<DbRepository<Person>>(AppStart::_db);
+
+		return new CrudWorker<Person>(repo);
+	};
+
+	IocFactory::registerIocContainer(IocContainer().forService<ICrudWorker<Person>>().implementedBy<CrudWorker<Person>>(std::cref(nnCrudWorker)));
 }

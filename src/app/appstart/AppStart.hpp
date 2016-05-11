@@ -1,6 +1,10 @@
 #ifndef IRIS_APPMANAGER_HPP
 #define IRIS_APPMANAGER_HPP
 
+#include <memory>
+#include <odb/database.hxx>
+#include <odb/sqlite/database.hxx> 
+
 class AppStart
 {
     public:
@@ -18,6 +22,9 @@ class AppStart
         int _args;
         char** _argv;
 
+		static std::shared_ptr<odb::database> _db;
+
+		void loadDataBase();
         void registerIocContainer();
         void registerCrudWorker();
 };

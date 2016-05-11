@@ -2,5 +2,6 @@
 
 <appConfig>
     <parameter name="repo"> xml </parameter>
+    <parameter name="sqliteDb"> ResourceFiles/DataBases/test.sqlite </parameter>
     <parameter name="backpropStepsize" > 0.1 </parameter>
 </appConfig>
